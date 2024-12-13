@@ -12,7 +12,7 @@ import FAQ from '../components/FAQ';
 export default function MarketingPage(props: { disableCustomTheme?: boolean }) {
   return (
     <AppTheme {...props}>
-      <CssBaseline enableColorScheme />
+      <CssBaseline />
 
       <AppAppBar />
       <Hero />
