@@ -1,38 +1,66 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Container from '@mui/material/Container';
-import Divider from '@mui/material/Divider';
-import Grid from '@mui/material/Grid2';
-import Typography from '@mui/material/Typography';
-import CheckCircleRoundedIcon from '@mui/icons-material/CheckCircleRounded';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Grid from "@mui/material/Grid2";
+import Typography from "@mui/material/Typography";
+import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
+import LockClockIcon from "@mui/icons-material/LockClock";
 
 const tiers = [
   {
-    title: "Бесплатная версия",
+    title: "Free (Бесплатный)",
     price: "0",
-    description: ["Описание", "Описание", "Описание", "Описание"],
+    subheader: "unlock",
+    description: [
+      "До 3 файлов (до 10МБ каждый)",
+      "Доставка по email",
+      "Базовое шифрование",
+      "1 получатель на 1 файл",
+      "Базовые шаблоны инструкций",
+    ],
     buttonText: "Попробуй бесплатно",
     buttonVariant: "contained",
     buttonColor: "secondary",
   },
   {
-    title: "Базовая версия",
-    subheader: "Recommended",
+    title: "Pro",
+    subheader: "lock",
     price: "15",
-    description: ["Описание", "Описание", "Описание", "Описание"],
-    buttonText: "Начни сейчас",
-    buttonVariant: "contained",
+    description: [
+      "До 5 файлов (до 100МБ каждый)",
+      "Мультиканальная доставка (Email, WhatsApp, SMS, Telegram)",
+      "Продвинутое шифрование",
+      "До 3 получателей на один файл",
+      "Расширенные шаблоны инструкций",
+      "Приоритетная поддержка",
+      "Гибкие настройки времени доставки",
+    ],
+    buttonText: "В разработке",
+    buttonVariant: "outlined",
     buttonColor: "secondary",
   },
   {
-    title: "Полная версия",
+    title: "Enterprise",
     price: "30",
-    description: ["Описание", "Описание", "Описание", "Описание"],
-    buttonText: "Начни сейчас",
-    buttonVariant: "contained",
+    subheader: "lock",
+    description: [
+      "Неограниченное количество файлов",
+      "Все каналы доставки + курьерская доставка",
+      "Максимальный уровень шифрования",
+      "Неограниченное количество получателей",
+      "Все шаблоны инструкций",
+      "Персональный менеджер",
+      "Телефонные консультации получателей",
+      "White-label решение",
+      "API доступ",
+      "SLA гарантии",
+    ],
+    buttonText: "В разработке",
+    buttonVariant: "outlined",
     buttonColor: "secondary",
   },
 ];
@@ -85,18 +113,6 @@ export default function Pricing() {
                     transform: "scale(1.05)",
                   },
                 },
-                tier.title === "" &&
-                  ((theme) => ({
-                    border: "none",
-                    background:
-                      "radial-gradient(circle at 50% 0%, hsl(220, 20%, 35%), hsl(220, 30%, 6%))",
-                    boxShadow: `0 8px 12px hsla(220, 20%, 42%, 0.2)`,
-                    ...theme.applyStyles("dark", {
-                      background:
-                        "radial-gradient(circle at 50% 0%, hsl(220, 20%, 20%), hsl(220, 30%, 16%))",
-                      boxShadow: `0 8px 12px hsla(0, 0%, 0%, 0.8)`,
-                    }),
-                  })),
               ]}
             >
               <CardContent>
@@ -109,14 +125,16 @@ export default function Pricing() {
                       alignItems: "center",
                       gap: 2,
                     },
-                    tier.title === ""
-                      ? { color: "grey.100" }
-                      : { color: "" },
                   ]}
                 >
                   <Typography component="h3" variant="h6">
                     {tier.title}
                   </Typography>
+                  {tier.subheader === "lock" && (
+                    <Box sx={{ opacity: "50%" }}>
+                      <LockClockIcon />
+                    </Box>
+                  )}
                 </Box>
                 <Box
                   sx={[
@@ -124,9 +142,6 @@ export default function Pricing() {
                       display: "flex",
                       alignItems: "baseline",
                     },
-                    tier.title === "Professional"
-                      ? { color: "grey.50" }
-                      : { color: null },
                   ]}
                 >
                   <Typography component="h3" variant="h2">
@@ -174,8 +189,9 @@ export default function Pricing() {
               <CardActions>
                 <Button
                   fullWidth
-                  variant={tier.buttonVariant as "contained"}
-                  color={tier.buttonColor as "secondary"}
+                  variant={tier.buttonVariant as "outlined"}
+                  color={tier.buttonColor as "primary"}
+                  disabled={tier.title === "Pro" || tier.title === "Enterprise"}
                 >
                   {tier.buttonText}
                 </Button>

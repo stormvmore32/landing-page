@@ -1,7 +1,7 @@
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
 
 // const StyledBox = styled("div")(({ theme }) => ({
 //   alignSelf: "center",
@@ -69,21 +69,20 @@ export default function Hero() {
               ...theme.applyStyles("dark", { color: "primary.light" }),
             })}
           >
-            TransferBox
+            Legacy Keeper
           </Typography>
           <Typography
+            variant="h2"
             sx={{
               textAlign: "center",
               color: "text.secondary",
               width: { sm: "100%", md: "80%" },
             }}
           >
-            Сервис обмена данными с приоритетом конфиденциальности и
-            безопасности.
+            Cохраните самое важное для тех, кто важнее всего.
           </Typography>
         </Stack>
       </Container>
     </Box>
   );
 }
-

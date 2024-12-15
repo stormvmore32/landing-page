@@ -5,43 +5,74 @@ import Grid from "@mui/material/Grid2";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import ConstructionRoundedIcon from "@mui/icons-material/ConstructionRounded";
-
 import SettingsSuggestRoundedIcon from "@mui/icons-material/SettingsSuggestRounded";
-
 import ThumbUpAltRoundedIcon from "@mui/icons-material/ThumbUpAltRounded";
+import ShieldIcon from "@mui/icons-material/Shield";
+import PeopleIcon from "@mui/icons-material/People";
+import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
 
+// const items = [
+//   {
+//     icon: <SettingsSuggestRoundedIcon />,
+//     title: "Сквозное шифрование данных",
+//     description:
+//       "Все данные шифруются на стороне клиента, что гарантирует, что их сможет получить только предполагаемый получатель",
+//   },
+//   {
+//     icon: <ShieldIcon />,
+//     title: "Нулевое разглашение",
+//     description:
+//       "Сервер не имеет доступа к содержимому ваших данных, что делает невозможным их расшифровку кем-либо другим.",
+//   },
+//   {
+//     icon: <ThumbUpAltRoundedIcon />,
+//     title: "Удаление данных",
+//     description:
+//       "При необходимости пользователь может удалить данные с сервера.",
+//   },
+//   {
+//     icon: <ThumbUpAltRoundedIcon />,
+//     title: "Добавил на подумать",
+//     description: "Здесь будет текст",
+//   },
+//   {
+//     icon: <ThumbUpAltRoundedIcon />,
+//     title: "Добавил на подумать",
+//     description: "Здесь будет текст",
+//   },
+// ];
 const items = [
   {
+    icon: <ShieldIcon />,
+    title: "Максимальная защита ваших данных",
+    description:
+      "Все материалы шифруются непосредственно на вашем устройстве. Даже мы не имеем доступа к вашей личной информации.",
+  },
+  {
     icon: <SettingsSuggestRoundedIcon />,
-    title: "Сквозное шифрование данных",
+    title: "Доступен каждому",
     description:
-      "Все данные шифруются на стороне клиента, что гарантирует, что их сможет получить только предполагаемый получатель",
+      "Сервис всегда останется бесплатным. Мы верим, что сохранение цифрового наследия должно быть доступно каждому.",
   },
   {
-    icon: <ConstructionRoundedIcon />,
-    title: "Нулевое разглашение",
+    icon: <PeopleIcon />,
+    title: "Возможность доставки данных",
     description:
-      "Сервер не имеет доступа к содержимому ваших данных, что делает невозможным их расшифровку кем-либо другим.",
+      "Назначайте доверенных людей, которые получат доступ к вашему цифровому наследию в нужный момент.",
+  },
+  {
+    icon: <LaptopChromebookIcon />,
+    title: "Простота использования",
+    description:
+      "Интуитивно понятный интерфейс позволит настроить передачу цифрового наследия за несколько минут.",
   },
   {
     icon: <ThumbUpAltRoundedIcon />,
-    title: "Удаление данных",
+    title: "Контроль над своими данными",
     description:
-      "При необходимости пользователь может удалить данные с сервера.",
-  },
-  {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: "Добавил на подумать",
-    description: "Здесь будет текст",
-  },
-  {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: "Добавил на подумать",
-    description: "Здесь будет текст",
+      "Вы всегда можете изменить или удалить любую информацию в вашем хранилище.",
   },
 ];
-
 export default function Highlights() {
   return (
     <Box

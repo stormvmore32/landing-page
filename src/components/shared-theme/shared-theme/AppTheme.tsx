@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import type { ThemeOptions } from '@mui/material/styles';
-import { inputsCustomizations } from './customizations/inputs';
-import { dataDisplayCustomizations } from './customizations/dataDisplay';
-import { feedbackCustomizations } from './customizations/feedback';
-import { navigationCustomizations } from './customizations/navigation';
-import { surfacesCustomizations } from './customizations/surfaces';
-import {typography, shadows, shape } from './themePrimitives';
+import * as React from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import type { ThemeOptions } from "@mui/material/styles";
+import { inputsCustomizations } from "./customizations/inputs";
+import { dataDisplayCustomizations } from "./customizations/dataDisplay";
+import { feedbackCustomizations } from "./customizations/feedback";
+import { navigationCustomizations } from "./customizations/navigation";
+import { surfacesCustomizations } from "./customizations/surfaces";
+import { typography, shadows, shape } from "./themePrimitives";
 
 interface AppThemeProps {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ interface AppThemeProps {
    * This is for the docs site. You can ignore it or remove it.
    */
   disableCustomTheme?: boolean;
-  themeComponents?: ThemeOptions['components'];
+  themeComponents?: ThemeOptions["components"];
 }
 
 // export default function AppTheme({
@@ -64,12 +64,12 @@ export default function AppTheme({
     // Светлая тема по умолчанию
     const defaultLightTheme = createTheme({
       palette: {
-        mode: 'light', // Устанавливаем светлую тему
+        mode: "light",
       },
 
       cssVariables: {
-        colorSchemeSelector: 'data-mui-color-scheme',
-        cssVarPrefix: 'template',
+        colorSchemeSelector: "data-mui-color-scheme",
+        cssVarPrefix: "template",
       },
       typography,
       shadows,
