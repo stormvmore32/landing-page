@@ -11,36 +11,6 @@ import ShieldIcon from "@mui/icons-material/Shield";
 import PeopleIcon from "@mui/icons-material/People";
 import LaptopChromebookIcon from "@mui/icons-material/LaptopChromebook";
 
-// const items = [
-//   {
-//     icon: <SettingsSuggestRoundedIcon />,
-//     title: "Сквозное шифрование данных",
-//     description:
-//       "Все данные шифруются на стороне клиента, что гарантирует, что их сможет получить только предполагаемый получатель",
-//   },
-//   {
-//     icon: <ShieldIcon />,
-//     title: "Нулевое разглашение",
-//     description:
-//       "Сервер не имеет доступа к содержимому ваших данных, что делает невозможным их расшифровку кем-либо другим.",
-//   },
-//   {
-//     icon: <ThumbUpAltRoundedIcon />,
-//     title: "Удаление данных",
-//     description:
-//       "При необходимости пользователь может удалить данные с сервера.",
-//   },
-//   {
-//     icon: <ThumbUpAltRoundedIcon />,
-//     title: "Добавил на подумать",
-//     description: "Здесь будет текст",
-//   },
-//   {
-//     icon: <ThumbUpAltRoundedIcon />,
-//     title: "Добавил на подумать",
-//     description: "Здесь будет текст",
-//   },
-// ];
 const items = [
   {
     icon: <ShieldIcon />,
@@ -72,14 +42,20 @@ const items = [
     description:
       "Вы всегда можете изменить или удалить любую информацию в вашем хранилище.",
   },
+  {
+    icon: <ThumbUpAltRoundedIcon />,
+    title: "Шестая плиточка",
+    description:
+      "Шестая плиточка на подумать.",
+  },
 ];
 export default function Highlights() {
   return (
     <Box
       id="highlights"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 2, sm: 4 },
+        pb: { xs: 2, sm: 4 },
         color: "black",
         bgcolor: "white",
       }}
@@ -123,7 +99,7 @@ export default function Highlights() {
                 <div>
                   <Typography
                     gutterBottom
-                    sx={{ fontWeight: "medium", color: "black" }}
+                    sx={{ fontWeight: "600", color: "black", fontSize: "15px" }}
                   >
                     {item.title}
                   </Typography>

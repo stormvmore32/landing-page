@@ -70,8 +70,8 @@ export default function Pricing() {
     <Container
       id="pricing"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 2, sm: 4 },
+        pb: { xs: 2, sm: 4 },
         position: "relative",
         display: "flex",
         flexDirection: "column",
@@ -97,7 +97,7 @@ export default function Pricing() {
       <Grid
         container
         spacing={3}
-        sx={{ alignItems: "center", justifyContent: "center", width: "100%" }}
+        sx={{ alignItems: "stretch", justifyContent: "center", width: "100%" }}
       >
         {tiers.map((tier) => (
           <Grid size={{ xs: 12, sm: 12, md: 4 }} key={tier.title}>
@@ -107,11 +107,15 @@ export default function Pricing() {
                   p: 2,
                   display: "flex",
                   flexDirection: "column",
+                  height: "100%",
+                  justifyContent: "space-between",
                   gap: 4,
                   transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
+                  ...(tier.subheader === 'unlock' && {
+                    '&:hover': {
+                      transform: 'scale(1.05)',
+                    },
+                  }),
                 },
               ]}
             >
@@ -143,14 +147,7 @@ export default function Pricing() {
                       alignItems: "baseline",
                     },
                   ]}
-                >
-                  <Typography component="h3" variant="h2">
-                    {tier.price} рублей
-                  </Typography>
-                  <Typography component="h3" variant="h6">
-                    &nbsp; в месяц
-                  </Typography>
-                </Box>
+                ></Box>
                 <Divider sx={{ my: 2, opacity: 0.8, borderColor: "divider" }} />
                 {tier.description.map((line) => (
                   <Box

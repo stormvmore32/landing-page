@@ -7,6 +7,109 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+const qNa = [
+  {
+    question: "Что такое Legacy Keeper?",
+    answer: [
+      "Legacy Keeper - это защищенное хранилище для ваших важных данных с функцией передачи доверенным лицам. Представьте его как цифровое завещание, которое передаст важную информацию вашим близким, когда это будет необходимо.",
+    ],
+    panel: "panel1",
+  },
+  {
+    question: "Чем Legacy Keeper отличается от обычного облачного хранилища?",
+    answer: [
+      "Шифрование на стороне клиента - даже мы не имеем доступа к вашим данным",
+      "Система автоматической передачи данным доверенным лицам",
+      "Специализированные инструкции для получателей",
+      "Гарантированная доставка разными способами",
+      "Фокус на безопасности и конфиденциальности",
+    ],
+    panel: "panel2",
+  },
+  {
+    question: "Как это работает?",
+    answer: [
+      "Загружаете важные файлы",
+      "Указываете получателей",
+      "Настраиваете условия передачи",
+      "Создаете инструкции для получателей",
+      "Всё! Система автоматически позаботится о передаче данных, когда это потребуется.",
+    ],
+    panel: "panel3",
+  },
+  {
+    question: "Как передаются пароли получателям?",
+    answer: [
+      "Пароль нужно передать через выбранный вами независимый канал. Это гарантирует, что только законный получатель сможет получить доступ к данным.",
+    ],
+    panel: "panel4",
+  },
+  {
+    question: "Какие гарантии безопасности вы предоставляете?",
+    answer: [
+      "Шифрование происходит по AES 256 непосредственно на вашем компьютере, что предотвращает утечку данных",
+      "Данные хранятся в зашифрованном в виде на распределенных хранилищах",
+      "Множественное резервное копирование",
+      "Соответствие GDPR и другим стандартам защиты данных",
+      "Регулярный аудит безопасности",
+    ],
+    panel: "panel5",
+  },
+  {
+    question: "Что если я забуду свой пароль?",
+    answer: [
+      "В целях безопасности мы не храним ваши пароли. Рекомендуем тщательно сохранить пароль после регистрации.",
+    ],
+    panel: "panel6",
+  },
+  {
+    question: "Как проверяется моя активность в базовом варианте?",
+    answer: [
+      "Система отправляет вам ссылку-подтверждение с определенной регулярностью. Если вы не подтверждение аккаунт в течении определенного времени, ваши файлы отправятся получателям.",
+    ],
+    panel: "panel7",
+  },
+  {
+    question: "Что если я хочу изменить получателей или данные?",
+    answer: [
+      "Вы можете в любой момент:",
+      "Добавить или удалить получателей",
+      "Изменить загруженные файлы",
+      "Обновить инструкции",
+      "Настроить условия передачи",
+    ],
+    panel: "panel8",
+  },
+  {
+    question: "Как получатели узнают о наличии данных для них?",
+    answer: [
+      "Система автоматически уведомит их выбранным способом (email, SMS, мессенджеры или даже личная встреча и консультации по телефону).",
+    ],
+    panel: "panel9",
+  },
+  {
+    question: "Почему стоит использовать Legacy Kepeer?",
+    answer: [
+      "Защита важных данных",
+      "Спокойствие за будущее близких",
+      "Гарантированная передача информации",
+      "Простота использования",
+      "Максимальная безопасность",
+    ],
+    panel: "panel10",
+  },
+  {
+    question: "Как начать пользоваться сервисом?",
+    answer: [
+      "Зарегистрируйтесь",
+      "Выберите тарифный план",
+      "Загрузите данные",
+      "Настройте получателей",
+    ],
+    panel: "panel11",
+  },
+];
+
 export default function FAQ() {
   const [expanded, setExpanded] = React.useState<string[]>([]);
 
@@ -23,8 +126,8 @@ export default function FAQ() {
     <Container
       id="faq"
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
+        pt: { xs: 2, sm: 4 },
+        pb: { xs: 2, sm: 4 },
         position: "relative",
         display: "flex",
         flexDirection: "column",
@@ -44,222 +147,32 @@ export default function FAQ() {
         Вопросы и ответы
       </Typography>
       <Box sx={{ width: "100%" }}>
-        <Accordion
-          expanded={expanded.includes("panel1")}
-          onChange={handleChange("panel1")}
+      {qNa.map((item, index) => (
+        <Accordion 
+          key={index} 
+          expanded={expanded.includes(item.panel)} 
+          onChange={handleChange(item.panel)}
         >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1d-content"
-            id="panel1d-header"
+          <AccordionSummary 
+            expandIcon={<ExpandMoreIcon />} 
+            aria-controls={`${item.panel}-content`} 
+            id={`${item.panel}-header`}
           >
             <Typography component="h3" variant="subtitle2">
-              Что такое Legacy Keeper?
+              {item.question}
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              Legacy Keeper - это защищенное хранилище для ваших важных данных с
-              функцией передачи доверенным лицам. Представьте его как цифровое
-              завещание, которое передаст важную информацию вашим близким, когда
-              это будет необходимо.
+            <Typography variant="body2" gutterBottom sx={{ maxWidth: { sm: "100%", md: "70%" } }}>
+              {item.answer.map((ans, i) => (
+                <div key={i}>{ans}</div>
+              ))}
             </Typography>
           </AccordionDetails>
         </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel2")}
-          onChange={handleChange("panel2")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel2d-content"
-            id="panel2d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Чем Legacy Keeper отличается от обычного облачного хранилища?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              <ul style={{ marginTop: "0px" }}>
-                <li>
-                  Шифрование на стороне клиента - даже мы не имеем доступа к
-                  вашим данным
-                </li>
-                <li>Система автоматической передачи данным доверенным лицам</li>
-                <li>Специализированные инструкции для получателей</li>
-                <li>Гарантированная доставка разными способами</li>
-                <li>Фокус на безопасности и конфиденциальности</li>
-              </ul>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel3")}
-          onChange={handleChange("panel3")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Как это работает?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              <ol style={{ marginTop: "0px" }}>
-                <li>Загружаете важные файлы</li>
-                <li>Указываете получателей</li>
-                <li>Настраиваете условия передачи</li>
-                <li>Создаете инструкции для получателей</li>
-              </ol>
-              Всё! Система автоматически позаботится о передаче данных, когда
-              это потребуется.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel4")}
-          onChange={handleChange("panel4")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Как передаются пароли получателям?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              Пароль нужно передать через выбранный вами независимый канал. Это
-              гарантирует, что только законный получатель сможет получить доступ
-              к данным.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel5")}
-          onChange={handleChange("panel5")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Какие гарантии безопасности вы предоставляете?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              <ul style={{ marginTop: "0px" }}>
-                <li>Шифрование AES-256</li>
-                <li>Данные хранятся в зашифрованном виде</li>
-                <li>Множественное резервное копирование</li>
-                <li>Соответствие GDPR и другим стандартам защиты данных</li>
-                <li>Регулярный аудит безопасности</li>
-              </ul>
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel6")}
-          onChange={handleChange("panel6")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Что если я забуду свой пароль?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              В целях безопасности мы не храним ваши пароли. Рекомендуем
-              тщательно сохранить пароль после регистрации.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel7")}
-          onChange={handleChange("panel7")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Как проверяется моя активность?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              Система отправляет вам ссылку-подтверждение с определенной
-              регулярностью. Если вы не подтверждение аккаунт в течении
-              определенного времени, ваши файлы отправятся получателям.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion
-          expanded={expanded.includes("panel8")}
-          onChange={handleChange("panel8")}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel3d-content"
-            id="panel3d-header"
-          >
-            <Typography component="h3" variant="subtitle2">
-              Как получатели узнают о наличии данных для них?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              variant="body2"
-              gutterBottom
-              sx={{ maxWidth: { sm: "100%", md: "70%" } }}
-            >
-              Система автоматически уведомит их выбранным способом (email, SMS,
-              мессенджеры или даже личная встреча и консультации по телефону).
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-      </Box>
+      ))}
+    </Box>
+
     </Container>
   );
 }

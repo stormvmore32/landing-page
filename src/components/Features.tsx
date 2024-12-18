@@ -13,44 +13,15 @@ import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded
 import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
 import { List, ListItem } from "@mui/material";
 
-// const items = [
-//   {
-//     icon: <ViewQuiltRoundedIcon />,
-//     title: 'Q1 (Январь - Март):',
-//     description:
-//       'Возможность отправки данных конечному получателю через определенное время.',
-//     imageLight: `url("https://mui.com/static/images/templates/templates-images/dash-light.png")`,
-//     imageDark: `url("https://mui.com/static/images/templates/templates-images/dash-dark.png")`,
-//   },
-//   {
-//     icon: <EdgesensorHighRoundedIcon />,
-//     title: 'Пример',
-//     description:
-//       'Здесь будет текст.',
-//     imageLight: `url("https://mui.com/static/images/templates/templates-images/mobile-light.png")`,
-//     imageDark: `url("https://mui.com/static/images/templates/templates-images/mobile-dark.png")`,
-//   },
-//   {
-//     icon: <DevicesRoundedIcon />,
-//     title: 'Пример',
-//     description:
-//       'Здесь будет текст',
-//     imageLight: `url("https://mui.com/static/images/templates/templates-images/devices-light.png")`,
-//     imageDark: `url("https://mui.com/static/images/templates/templates-images/devices-dark.png")`,
-//   },
-// ];
 const items = [
   {
     icon: <ViewQuiltRoundedIcon />,
     title: "Q1 (Январь - Март)",
     description: [
       "Возможность отправки данных конечному получателю через определенное время",
-      "Отложенная отправка без проверки активности",
       "Гибкие настройки проверки активности пользователя",
-      "Базовые шаблоны инструкций для наследников",
+      "Базовые шаблоны инструкций для получателей",
     ],
-    imageLight: `url("https://mui.com/static/images/templates/templates-images/dash-light.png")`,
-    imageDark: `url("https://mui.com/static/images/templates/templates-images/dash-dark.png")`,
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
@@ -60,8 +31,6 @@ const items = [
       "Продвинутый конструктор инструкций с категориями",
       "Запуск тарифов с расширенными возможностями",
     ],
-    imageLight: `url("https://mui.com/static/images/templates/templates-images/mobile-light.png")`,
-    imageDark: `url("https://mui.com/static/images/templates/templates-images/mobile-dark.png")`,
   },
   {
     icon: <DevicesRoundedIcon />,
@@ -71,8 +40,6 @@ const items = [
       "Специальные корпоративные тарифы",
       "Внешние интеграции с нотариальными конторами",
     ],
-    imageLight: `url("https://mui.com/static/images/templates/templates-images/devices-light.png")`,
-    imageDark: `url("https://mui.com/static/images/templates/templates-images/devices-dark.png")`,
   },
   {
     icon: <DevicesRoundedIcon />,
@@ -82,8 +49,6 @@ const items = [
       "Полностью настраиваемые сценарии доставки",
       "API для корпоративных клиентов",
     ],
-    imageLight: `url("https://mui.com/static/images/templates/templates-images/devices-light.png")`,
-    imageDark: `url("https://mui.com/static/images/templates/templates-images/devices-dark.png")`,
   },
 ];
 interface ChipProps {
@@ -145,26 +110,6 @@ export function MobileLayout({
         ))}
       </Box>
       <Card variant="outlined">
-        {/* <Box
-          sx={(theme) => ({
-            mb: 2,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            minHeight: 280,
-            backgroundImage: "var(--items-imageLight)",
-            ...theme.applyStyles("dark", {
-              backgroundImage: "var(--items-imageDark)",
-            }),
-          })}
-          style={
-            items[selectedItemIndex]
-              ? ({
-                  "--items-imageLight": items[selectedItemIndex].imageLight,
-                  "--items-imageDark": items[selectedItemIndex].imageDark,
-                } as any)
-              : {}
-          }
-        /> */}
         <Box sx={{ px: 2, pb: 2 }}>
           <Typography
             gutterBottom
@@ -191,7 +136,7 @@ export default function Features() {
   const selectedFeature = items[selectedItemIndex];
 
   return (
-    <Container id="features" sx={{ py: { xs: 8, sm: 16 } }}>
+    <Container id="features" sx={{ py: { xs: 4, sm: 8 } }}>
       <Box sx={{ width: { sm: "100%", md: "60%" } }}>
         <Typography
           component="h2"
@@ -209,13 +154,6 @@ export default function Features() {
           его возможностей.
         </Typography>
       </Box>
-      {/* <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row-reverse" },
-          gap: 2,
-        }}
-      > */}
       <div>
         <Box
           sx={{
@@ -288,45 +226,6 @@ export default function Features() {
           selectedFeature={selectedFeature}
         />
       </div>
-      {/* <Box
-          sx={{
-            display: { xs: "none", sm: "flex" },
-            width: { xs: "100%", md: "70%" },
-            height: "var(--items-image-height)",
-          }}
-        >
-          <Card
-            variant="outlined"
-            sx={{
-              height: "100%",
-              width: "100%",
-              display: { xs: "none", sm: "flex" },
-              pointerEvents: "none",
-            }}
-          >
-            <Box
-              sx={(theme) => ({
-                m: "auto",
-                width: 420,
-                height: 500,
-                backgroundSize: "contain",
-                backgroundImage: "var(--items-imageLight)",
-                ...theme.applyStyles("dark", {
-                  backgroundImage: "var(--items-imageDark)",
-                }),
-              })}
-              style={
-                items[selectedItemIndex]
-                  ? ({
-                      "--items-imageLight": items[selectedItemIndex].imageLight,
-                      "--items-imageDark": items[selectedItemIndex].imageDark,
-                    } as any)
-                  : {}
-              }
-            />
-          </Card>
-        </Box> */}
-      {/* </Box> */}
     </Container>
   );
 }

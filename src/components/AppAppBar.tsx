@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Container from '@mui/material/Container';
-import MenuItem from '@mui/material/MenuItem';
-import Drawer from '@mui/material/Drawer';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import Sitemark from './SitemarkIcon';
-import { Link } from 'react-scroll';
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Container from "@mui/material/Container";
+import MenuItem from "@mui/material/MenuItem";
+import Drawer from "@mui/material/Drawer";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import Logo from "../assets/Logowtback.png";
+import { Link } from "react-scroll";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -47,20 +47,21 @@ export default function AppAppBar() {
     >
       <Container maxWidth="lg">
         <StyledToolbar variant="dense" disableGutters>
-          <Sitemark />
+          <img src={Logo} alt="Logo app" width="75px" height="75px" />
+
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Link to="highlights" smooth={true} duration={500}>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="large">
                 Возможности сервиса
               </Button>
             </Link>
             <Link to="features" smooth={true} duration={500}>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="large">
                 Карта будующих возможностей
               </Button>
             </Link>
             <Link to="pricing" smooth={true} duration={500}>
-              <Button variant="text" color="info" size="small">
+              <Button variant="text" color="info" size="large">
                 Тарифы
               </Button>
             </Link>
@@ -68,7 +69,7 @@ export default function AppAppBar() {
               <Button
                 variant="text"
                 color="info"
-                size="small"
+                size="large"
                 sx={{ minWidth: 0 }}
               >
                 Вопросы и ответы
@@ -83,16 +84,14 @@ export default function AppAppBar() {
               alignItems: "center",
             }}
           >
-            <Button color="secondary" variant="contained" size="small">
+            <Button color="secondary" variant="contained" size="medium">
               Войти
             </Button>
-            <Button color="secondary" variant="contained" size="small">
+            <Button color="secondary" variant="contained" size="medium">
               Зарегистрироваться
             </Button>
-            {/* <ColorModeIconDropdown /> */}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
-            {/* <ColorModeIconDropdown size="medium" /> */}
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
@@ -118,24 +117,24 @@ export default function AppAppBar() {
                   </IconButton>
                 </Box>
                 <Link to="highlights" smooth={true} duration={500}>
-                <MenuItem>Возможности сервиса</MenuItem>
+                  <MenuItem>Возможности сервиса</MenuItem>
                 </Link>
                 <Link to="features" smooth={true} duration={500}>
-                <MenuItem>Карта будующих возможностей</MenuItem>
+                  <MenuItem>Карта будующих возможностей</MenuItem>
                 </Link>
                 <Link to="pricing" smooth={true} duration={500}>
-                <MenuItem>Тарифы</MenuItem>
+                  <MenuItem>Тарифы</MenuItem>
                 </Link>
                 <Link to="faq" smooth={true} duration={500}>
-                <MenuItem>Вопросы и ответы</MenuItem>
+                  <MenuItem>Вопросы и ответы</MenuItem>
                 </Link>
                 <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
+                  <Button color="secondary" variant="contained" fullWidth>
                     Зарегистрироваться
                   </Button>
                 </MenuItem>
                 <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
+                  <Button color="secondary" variant="contained" fullWidth>
                     Войти
                   </Button>
                 </MenuItem>
